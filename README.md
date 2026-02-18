@@ -1,16 +1,85 @@
-# React + Vite
+# Assignment Evaluation System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application that allows students to submit assignments and receive AI-based evaluation feedback, while instructors can review all submissions.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+### Frontend
+- React (Vite)
+- Axios
+- React Router
+- Deployed on Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Backend
+- Node.js
+- Express.js
+- CORS
+- Deployed on Render
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Deployed URLs
+
+- Frontend: https://assignment-frontend.vercel.app
+- Backend: https://assignment-backend-h9cx.onrender.com
+
+---
+
+## 📌 Features
+
+### Student Module
+- Submit assignment text
+- Receive plagiarism risk percentage
+- Receive score and feedback
+
+### Instructor Module
+- View all submitted assignments
+- See plagiarism score and evaluation feedback
+
+---
+
+## 🧠 AI Evaluation Logic
+
+- Rule-based evaluation
+- Plagiarism risk generated using random percentage
+- Feedback generated based on content length and plagiarism score
+
+---
+
+## 🗂 Database Schema (Logical Design)
+
+The system follows a logical database design with three entities:
+
+- Student
+- Assignment
+- Submission
+
+Each submission stores assignment content, plagiarism score, evaluation score, and feedback.
+
+(Current implementation uses in-memory storage but is designed for database integration.)
+
+---
+
+## 🛠 How to Run Locally
+
+### Backend
+```bash
+cd assignment-backend
+npm install
+npm run dev
+
+Backend runs on:
+
+http://localhost:5000
+
+Frontend
+cd assignment-frontend
+npm install
+npm run dev
+
+
+Frontend runs on:
+
+assignment-frontend1.vercel.app
