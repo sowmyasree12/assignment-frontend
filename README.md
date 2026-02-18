@@ -12,18 +12,14 @@ A full-stack web application that allows students to submit assignments and rece
 - React Router
 - Deployed on Vercel
 
-### Backend
-- Node.js
-- Express.js
-- CORS
-- Deployed on Render
+
 
 ---
 
-## 🌐 Deployed URLs
+## 🌐 Deployed URL
 
 - Frontend: https://assignment-frontend.vercel.app
-- Backend: https://assignment-backend-h9cx.onrender.com
+
 
 ---
 
@@ -74,12 +70,3 @@ Backend runs on:
 
 http://localhost:5000
 
-Frontend
-cd assignment-frontend
-npm install
-npm run dev
-
-
-Frontend runs on:
-
-assignment-frontend1.vercel.app
