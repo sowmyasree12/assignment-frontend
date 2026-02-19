@@ -1,54 +1,55 @@
 import { useState } from "react";
 import API from "../api";
+import "./dashboard.css";
 
 function StudentDashboard() {
   const [content, setContent] = useState("");
   const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
     try {
-      const res = await API.post(
-        "/submit",
-        {
-          assignmentId: "A1",
-          studentId: "S001",
-          content: content
-        },
-        {
-          timeout: 60000 // IMPORTANT for Render free tier cold start
-        }
-      );
-
+      setLoading(true);
+      const res = await API.post("/submit", {
+        assignmentId: "A1",
+        studentId: "S001",
+        content
+      });
       setResult(res.data);
-    } catch (error) {
-      console.error(error);
-      alert("Backend not connected yet (this is OK)");
+    } catch (err) {
+      alert("Backend not connected yet");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Student Dashboard</h2>
+    <div className="page">
+      <div className="card">
+        <h2>📘 Student Dashboard</h2>
+        <p className="subtitle">
+          Submit your assignment and receive evaluation feedback
+        </p>
 
-      <textarea
-        rows="6"
-        cols="50"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-      />
+        <textarea
+          placeholder="Write your assignment here..."
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
 
-      <br /><br />
+        <button onClick={handleSubmit} disabled={loading}>
+          {loading ? "Submitting..." : "Submit Assignment"}
+        </button>
 
-      <button onClick={handleSubmit}>Submit</button>
-
-      {result && (
-        <div style={{ marginTop: 20 }}>
-          <h3>Feedback</h3>
-          <p>Plagiarism Risk: {result.plagiarism_risk}</p>
-          <p>Score: {result.score}</p>
-          <p>{result.feedback_summary}</p>
-        </div>
-      )}
+        {result && (
+          <div className="result">
+            <h3>📊 Evaluation Result</h3>
+            <p><b>Plagiarism Risk:</b> {result.plagiarism_risk}</p>
+            <p><b>Score:</b> {result.score}</p>
+            <p><b>Feedback:</b> {result.feedback_summary}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
