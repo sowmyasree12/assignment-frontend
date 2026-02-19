@@ -18,7 +18,7 @@ A full-stack web application that allows students to submit assignments and rece
 
 ## 🌐 Deployed URL
 
-- Frontend: assignment-frontend-iwcd0724r-sowmyasree12s-projects.vercel.app
+- Frontend:  https://assignment-frontend.vercel.app
 
 
 ---
