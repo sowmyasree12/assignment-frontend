@@ -62,13 +62,14 @@ Each submission stores assignment content, plagiarism score, evaluation score, a
 
 ## 🛠 How to Run Locally
 
-### Backend
+### Frontend
 ```bash
-cd assignment-backend
+cd assignment-frontend
 npm install
 npm run dev
 
-Backend runs on:
 
-http://localhost:5000
+Frontend runs on:
 
+http://localhost:5173/
+http://localhost:5173/instructor
